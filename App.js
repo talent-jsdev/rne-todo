@@ -1,20 +1,21 @@
 import React from "react";
-import { StyleSheet, Button, Alert, SafeAreaView } from "react-native";
+import { StyleSheet, Button, SafeAreaView } from "react-native";
 
 export default function App() {
   console.log("executed");
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, containerStyle]}>
       <Button
-        color="orange"
         title="Click Me"
         onPress={() =>
-          Alert.prompt("My title", "My message", text => console.log(text))
+          console.log("Button Clicked!")
         }
       />
     </SafeAreaView>
   );
 }
+
+const containerStyle = { backgroundColor: "orange" };
 
 const styles = StyleSheet.create({
   container: {
