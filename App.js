@@ -1,10 +1,10 @@
 import React from "react";
-import { StyleSheet, Button, SafeAreaView } from "react-native";
+import { StyleSheet, Button, SafeAreaView, StatusBar, Platform } from "react-native";
 
 export default function App() {
   console.log("executed");
   return (
-    <SafeAreaView style={[styles.container, containerStyle]}>
+    <SafeAreaView style={styles.container}>
       <Button
         title="Click Me"
         onPress={() =>
@@ -15,13 +15,10 @@ export default function App() {
   );
 }
 
-const containerStyle = { backgroundColor: "orange" };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    paddingTop: Platform.OS === "ios" ? StatusBar.currentHeight : 0,
   },
 });
